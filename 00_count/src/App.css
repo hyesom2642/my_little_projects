@@ -1,0 +1,10 @@
+.container {
+  text-align: center;
+}
+.container h1 {
+  font-size: 40px;
+  font-weight: 700;
+}
+.btn-container button {
+  margin-right: 10px;
+}
