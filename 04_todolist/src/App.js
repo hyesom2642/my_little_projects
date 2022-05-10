@@ -14,6 +14,10 @@ function App(){
     setTodo("");
     setTodos((currentArray) => [...currentArray, toDo]);
   }
+  const deleteButton = (e) => {
+    const li = e.target.parentElement;
+    li.remove();
+  }
 
   return(
     <div>
@@ -24,7 +28,10 @@ function App(){
       </form>
       <ol>
         {toDos.map((item, index) => (
-            <li key={index}>{item}</li>
+            <li key={index}>
+              {item}
+            <button onClick={deleteButton}>❌</button>
+            </li>
         ))}
       </ol>
     </div>
