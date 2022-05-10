@@ -22,6 +22,11 @@ function App(){
         <input value={toDo} onChange={onChange} type="text" placeholder="오늘의 할 일을 적어주세요." />
         <button>+</button>
       </form>
+      <ol>
+        {toDos.map((item, index) => (
+            <li key={index}>{item}</li>
+        ))}
+      </ol>
     </div>
   )
 }
