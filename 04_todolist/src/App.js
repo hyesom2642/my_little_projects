@@ -1,35 +1,27 @@
-import React, { useState, useEffect} from 'react';
+import { useState } from 'react';
 import './App.css';
 
 function App(){
-  const [todo, setTodo] = useState('');
-  const [todos, setTodos] = useState([]);
-  const onChange = (e) => {
-    setTodo(e.target.value)
-  }
+  const [toDo, setTodo] = useState("");
+  const [toDos, setTodos] = useState([]);
+  const onChange = (e) => setTodo(e.target.value);
+
   const onSubmit = (e) => {
     e.preventDefault();
-    if( todo === "" ){
+    if( toDo === "" ){
       return;
     }
-    setTodos( (current) => [todo, ...current] );
     setTodo("");
+    setTodos((currentArray) => [...currentArray, toDo]);
   }
 
   return(
-    <div className="main-container">
-      <h1 className="main-title"> 📌 TODO-LIST </h1>
-      <div className="form-container">
-        <form onSubmit={ onSubmit }>
-          <input onChange={ onChange } value={ todo } type="text" placeholder='할 일을 적어주세요' />
-          <button> + </button>
-        </form>
-      </div>
-      <ul className="list-container">
-          {
-            todos.map( (item) => <li>{ item }</li> ) 
-          }
-        </ul>
+    <div>
+      <h1>✍ 오늘의 할 일 {toDos.length}가지 </h1>
+      <form onSubmit={onSubmit} type="submit">
+        <input value={toDo} onChange={onChange} type="text" placeholder="오늘의 할 일을 적어주세요." />
+        <button>+</button>
+      </form>
     </div>
   )
 }
