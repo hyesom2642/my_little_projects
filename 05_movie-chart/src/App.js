@@ -1,41 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router , Switch, Route } from 'react-router-dom';
+import Home from './routes/Home.js';
+import Detail from './routes/Detail.js';
+
 import './App.css';
 
-function App() {
-  const [loading, setLoading] = useState(true); // loading state
-  const [movies, setMovies] = useState([]); // API movie array
-  useEffect( () => {
-    fetch('https://yts.mx/api/v2/list_movies.json?minimum_rating=8&sort_by=year')
-    .then((response) => response.json())
-    .then((json) => {
-      setMovies(json.data.movies);
-      setLoading(false);
-    });
-  });
-
+function App(){
   return (
-    <div className="main-wrap">
-      {
-        loading === true ? <h1>Loading...</h1> : null
-      }
-      <div>
-        {
-          movies.map( (movie) => 
-            <div key={movie.id}>
-              <img src={movie.medium_cover_image} /> 
-              <h2>{movie.title}</h2>
-              <span>{movie.rating}</span>
-              <ul>
-                {
-                  movie.genres.map( (g) => <ul key={g}>{g}</ul> )
-                }
-              </ul>
-              <p>{movie.summary}</p>
-            </div> )
-        }
-      </div>
-    </div>
-  );
+    <Router>
+      <Switch>
+        <Route path="/movie/:id">
+          <Detail />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
+  )
 }
-
 export default App;
+
+
+// App.js는 router를 render한다.
