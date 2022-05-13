@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/my_little_projects.git/static/css/main.7f9289af.chunk.css",
+    "main.js": "/my_little_projects.git/static/js/main.cf3133b6.chunk.js",
+    "main.js.map": "/my_little_projects.git/static/js/main.cf3133b6.chunk.js.map",
+    "runtime-main.js": "/my_little_projects.git/static/js/runtime-main.9f171d70.js",
+    "runtime-main.js.map": "/my_little_projects.git/static/js/runtime-main.9f171d70.js.map",
+    "static/js/2.a07d3438.chunk.js": "/my_little_projects.git/static/js/2.a07d3438.chunk.js",
+    "static/js/2.a07d3438.chunk.js.map": "/my_little_projects.git/static/js/2.a07d3438.chunk.js.map",
+    "static/js/3.504dfce0.chunk.js": "/my_little_projects.git/static/js/3.504dfce0.chunk.js",
+    "static/js/3.504dfce0.chunk.js.map": "/my_little_projects.git/static/js/3.504dfce0.chunk.js.map",
+    "index.html": "/my_little_projects.git/index.html",
+    "static/css/main.7f9289af.chunk.css.map": "/my_little_projects.git/static/css/main.7f9289af.chunk.css.map",
+    "static/js/2.a07d3438.chunk.js.LICENSE.txt": "/my_little_projects.git/static/js/2.a07d3438.chunk.js.LICENSE.txt",
+    "static/media/backBtn.12655472.png": "/my_little_projects.git/static/media/backBtn.12655472.png",
+    "static/media/logo.251c98b2.png": "/my_little_projects.git/static/media/logo.251c98b2.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9f171d70.js",
+    "static/js/2.a07d3438.chunk.js",
+    "static/css/main.7f9289af.chunk.css",
+    "static/js/main.cf3133b6.chunk.js"
+  ]
+}
