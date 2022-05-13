@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 // Component
 import Loading from '../components/Loading.js';
 import Movie from '../components/Movie.js';
+import Nav from '../components/Nav.js';
 
 // CSS
 import HomeStyle from '../CSS/Home.module.css';
@@ -24,18 +25,21 @@ function Home(){
         <div>
             {
             loading === true ? <Loading /> :
-            <div className={HomeStyle.container}>
-            {
-                movies.map((movie) =>(
-                <Movie
-                    key={movie.id}
-                    id={movie.id}
-                    coverImage={movie.medium_cover_image}
-                    title={movie.title}
-                    year={movie.year}
-                />
-                ))
-            }
+            <div>
+                <Nav />
+                <div className={HomeStyle.container}>
+                {
+                    movies.map((movie) =>(
+                    <Movie
+                        key={movie.id}
+                        id={movie.id}
+                        coverImage={movie.medium_cover_image}
+                        title={movie.title}
+                        year={movie.year}
+                    />
+                    ))
+                }
+                </div>
             </div>
             }
         </div>
