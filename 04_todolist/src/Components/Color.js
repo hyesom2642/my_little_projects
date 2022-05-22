@@ -1,17 +1,7 @@
-// > 
-import { useState } from 'react';
-
 // > Css 
 import styled from 'styled-components';
 
-function Color(){
-    const [bgColor, setBgColor] = useState('#FFF');
-    
-    const TodoForm = styled.form`
-    width: 500vw;
-    height: 90vh;
-    background-color: ${props => props.color};
-    `;
+function Color(props){
     const ColorContainer = styled.div`
         width: 500px;
         height: 100px;
@@ -43,18 +33,19 @@ function Color(){
     const GrayButton = styled(Button)`
         background-color: #D3C0D3; 
     `;
+    const ChangeColor = (color) => {
+        props.setColor(color)
+    }
 
     return(
-        <>
-            <TodoForm color={bgColor}>
-                <ColorContainer>
-                    <PinkButton onClick={ () => setBgColor("#EEAFAF")} />
-                    <BlueButton onClick={ () => setBgColor("#AFC4E7")} />
-                    <GreenButton onClick={ () => setBgColor("#BAE7AF")} />
-                    <GrayButton onClick={ () => setBgColor("#D3C0D3")} />
-                    <BeigeButton onClick={ () => setBgColor("#F2EEE5")} />
-                </ColorContainer>
-            </TodoForm>
+        <>  
+            <ColorContainer>
+                <BeigeButton onClick={() => { ChangeColor("#F2EEE5") }} />
+                <GreenButton onClick={() => { ChangeColor("#BAE7AF") }} />
+                <BlueButton onClick={() => { ChangeColor("#AFC4E7") }} />
+                <GrayButton onClick={() => { ChangeColor("#D3C0D3") }} />
+                <PinkButton onClick={() => { ChangeColor("#EEAFAF") }} />
+            </ColorContainer>
         </>
     )
 }
