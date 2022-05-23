@@ -10,12 +10,12 @@ import { useState } from 'react';
 import Main from './Css/App.module.css';
 
 function App() {
-  const [color, setColor] = useState('#FFF');
+  const [color, setColor] = useState('');
   const [todoList, setTodoList] = useState([]);
 
   return (
     <>
-      <div className={Main.container} color={color}>
+      <div className={Main.container} style={{ backgroundColor: `${color}` }}>
         <h1 className={Main.title}>✍ TODO LIST</h1>
         <Input todoList={todoList} setTodoList={setTodoList} />
         <TodoList title={'Todo'} todoList={todoList} setTodoList={setTodoList} checked={false} />
