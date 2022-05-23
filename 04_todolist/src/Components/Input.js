@@ -7,7 +7,7 @@ import { useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 function Input({ todoList, setTodoList }) {
-  const [toDo, setTodo] = useState('');
+  const [todo, setTodo] = useState('');
   const inputRef = useRef(null); // # useRef() : Hook으로 ref 생성
 
   // # input 값 가져오기
@@ -24,7 +24,7 @@ function Input({ todoList, setTodoList }) {
     // # toDo : 각 todo item의 내용
     const nextTodoList = todoList.concat({
       id: todoList.length,
-      toDo,
+      todo,
       checked: false,
     });
     setTodoList(nextTodoList);
@@ -57,7 +57,7 @@ function Input({ todoList, setTodoList }) {
         <input
           className={InputStyle.input}
           type="text"
-          value={toDo}
+          value={todo}
           onChange={onChange}
           ref={inputRef}
           placeholder="오늘의 할 일을 적어주세요"
