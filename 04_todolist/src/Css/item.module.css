@@ -13,9 +13,15 @@
 }
 
 .deleteBtn {
+  font-size: 20px;
+  background-color: inherit;
+  border: none;
 }
-
-.span-chekced {
+.span {
+  font-size: 16px;
+}
+.spanChecked {
+  color: #eee;
   font-style: italic;
   text-decoration: line-through;
 }

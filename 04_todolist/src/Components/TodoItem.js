@@ -20,13 +20,13 @@ function TodoItem({ todoItem, todoList, setTodoList }) {
         {/* // # checkbox */}
         <input
           type="checkbox"
+          className={itemStyle.checkbox}
           onChange={changeCheckbox}
           checked={todoItem.checked}
-          className={itemStyle.checkbox}
         />
         {/* // # todoitem 내용 */}
-        <span className={`itemStyle.span ${todoItem.checked} ? 'span-checked' :''`}>
-          {todoItem.toDo}
+        <span className={todoItem.checked === false ? itemStyle.span : itemStyle.spanChecked}>
+          {todoItem.todo}
         </span>
         {/* // # 삭제버튼 */}
         <button type="button" className={itemStyle.deleteBtn}>
