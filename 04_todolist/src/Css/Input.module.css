@@ -1,0 +1,28 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input {
+  width: 300px;
+  height: 10px;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+.addBtn {
+  font-size: 25px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: inherit;
+  outline: none;
+  border: none;
+}
+.addBtn:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
