@@ -1,41 +1,39 @@
+// > Components
+import Color from './Components/Color';
+import Input from './Components/Input';
+import TodoList from './Components/TodoList';
+
+// >
 import { useState } from 'react';
-import './App.css';
 
-function App(){
-  const [toDo, setTodo] = useState("");
-  const [toDos, setTodos] = useState([]);
-  const onChange = (e) => setTodo(e.target.value);
+// > Css
+import Main from './Css/App.module.css';
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    if( toDo === "" ){
-      return;
-    }
-    setTodo("");
-    setTodos((currentArray) => [...currentArray, toDo]);
-  }
-  const deleteButton = (e) => {
-    const li = e.target.parentElement;
-    li.remove();
-  }
+function App() {
+  const [color, setColor] = useState('#FFF');
+  const [todoList, setTodoList] = useState([]);
 
-  return(
-    <div>
-      <h1>✍ 오늘의 할 일 {toDos.length}가지 </h1>
-      <form onSubmit={onSubmit} type="submit">
-        <input value={toDo} onChange={onChange} type="text" placeholder="오늘의 할 일을 적어주세요." />
-        <button>+</button>
-      </form>
-      <ol>
-        {toDos.map((item, index) => (
-            <li key={index}>
-              {item}
-            <button onClick={deleteButton}>❌</button>
-            </li>
-        ))}
-      </ol>
-    </div>
-  )
+  return (
+    <>
+      <div className={Main.container} color={color}>
+        <h1 className={Main.title}>✍ TODO LIST</h1>
+        <Input todoList={todoList} setTodoList={setTodoList} />
+        <TodoList title={'Todo'} todoList={todoList} setTodoList={setTodoList} checked={false} />
+        <TodoList
+          title={'Completed'}
+          todoList={todoList}
+          setTodoList={setTodoList}
+          checked={true}
+        />
+        <Color color={color} setColor={setColor} />
+      </div>
+      {/* <TodoContainer color={color}>
+        <TodoTitle>✍ TODO LIST</TodoTitle>
+        <Input />
+        <Color setColor={setColor} />
+      </TodoContainer> */}
+    </>
+  );
 }
 
 export default App;
