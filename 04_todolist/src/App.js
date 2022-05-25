@@ -7,16 +7,16 @@ import TodoList from './Components/TodoList';
 import { useState } from 'react';
 
 // > Css
-import Main from './Css/App.module.css';
+import AppStyle from './Css/App.module.css';
 
 function App() {
-  const [color, setColor] = useState('');
+  const [bgColor, setBgColor] = useState('#fff'); // * 기본값을 '#fff'색으로
   const [todoList, setTodoList] = useState([]);
 
   return (
     <>
-      <div className={Main.container} style={{ backgroundColor: `${color}` }}>
-        <h1 className={Main.title}>✍ TODO LIST</h1>
+      <div className={AppStyle.container} style={{ backgroundColor: `${bgColor}` }}>
+        <h1 className={AppStyle.title}>✍ TODO LIST</h1>
         <Input todoList={todoList} setTodoList={setTodoList} />
         <TodoList title={'Todo'} todoList={todoList} setTodoList={setTodoList} checked={false} />
         <TodoList
@@ -25,13 +25,8 @@ function App() {
           setTodoList={setTodoList}
           checked={true}
         />
-        <Color color={color} setColor={setColor} />
+        <Color setBgColor={setBgColor} />
       </div>
-      {/* <TodoContainer color={color}>
-        <TodoTitle>✍ TODO LIST</TodoTitle>
-        <Input />
-        <Color setColor={setColor} />
-      </TodoContainer> */}
     </>
   );
 }

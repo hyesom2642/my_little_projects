@@ -1,14 +1,7 @@
 // > Css
 import colorStyle from '../Css/Color.module.css';
 
-// >
-// import { useState } from 'react';
-
-function Color({ color, setColor }) {
-  // const ChangeColor = (color) => {
-  //   props.setColor(color);
-  // };
-
+function Color({ setBgColor }) {
   return (
     <>
       <div className={colorStyle.container}>
@@ -16,35 +9,35 @@ function Color({ color, setColor }) {
           type="button"
           className={`${colorStyle.button} ${colorStyle.beigeBtn}`}
           onClick={() => {
-            setColor('#f2eee5');
+            setBgColor('#f2eee5');
           }}
         />
         <button
           type="button"
           className={`${colorStyle.button} ${colorStyle.pinkBtn}`}
           onClick={() => {
-            setColor('#eeafaf');
+            setBgColor('#eeafaf');
           }}
         />
         <button
           type="button"
           className={`${colorStyle.button} ${colorStyle.blueBtn}`}
           onClick={() => {
-            setColor('#afc4e7');
+            setBgColor('#afc4e7');
           }}
         />
         <button
           type="button"
           className={`${colorStyle.button} ${colorStyle.greenBtn}`}
           onClick={() => {
-            setColor('#bae7af');
+            setBgColor('#bae7af');
           }}
         />
         <button
           type="button"
           className={`${colorStyle.button} ${colorStyle.grayBtn}`}
           onClick={() => {
-            setColor('#d3c0d3');
+            setBgColor('#d3c0d3');
           }}
         />
       </div>
