@@ -10,7 +10,7 @@ import { useState } from 'react';
 import AppStyle from './Css/App.module.css';
 
 function App() {
-  const [bgColor, setBgColor] = useState('#fff'); // * 기본값을 '#fff'색으로
+  const [bgColor, setBgColor] = useState('#fff');
   const [todoList, setTodoList] = useState([]);
 
   return (
@@ -18,13 +18,7 @@ function App() {
       <div className={AppStyle.container} style={{ backgroundColor: `${bgColor}` }}>
         <h1 className={AppStyle.title}>✍ TODO LIST</h1>
         <Input todoList={todoList} setTodoList={setTodoList} />
-        <TodoList title={'Todo'} todoList={todoList} setTodoList={setTodoList} checked={false} />
-        <TodoList
-          title={'Completed'}
-          todoList={todoList}
-          setTodoList={setTodoList}
-          checked={true}
-        />
+        <TodoList todoList={todoList} setTodoList={setTodoList} />
         <Color setBgColor={setBgColor} />
       </div>
     </>
