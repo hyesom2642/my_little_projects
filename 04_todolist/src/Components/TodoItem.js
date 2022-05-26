@@ -1,36 +1,85 @@
 // > Css
-import itemStyle from '../Css/item.module.css';
+import itemStyle from '../Css/TodoItem.module.css';
 
-// >
+// > import
 import PropTypes from 'prop-types';
+import { useEffect, useRef, useState } from 'react';
 
 function TodoItem({ todoItem, todoList, setTodoList }) {
-  const changeCheckbox = () => {
-    const nextTodoList = todoList.map((item) => ({
-      ...item,
-      checked: item.id === todoItem.id ? !item.checked : item.checked,
-    }));
+  const [edit, setEdit] = useState(false);
+  const [newTodo, setNewTodo] = useState(todoItem.todo);
+  const [checked, setChecked] = useState(false);
+  const editInputRef = useRef(null);
 
-    setTodoList(nextTodoList);
-  };
+  // * 삭제
+  function deleteItem(e) {
+    const parentLi = e.target.parentElement;
+    parentLi.remove();
+  }
+
+  // * 수정
+  function editItemState() {
+    setEdit(true);
+  }
+  function editCompleteItem() {
+    const newEditTodoList = todoList.map((item) => ({
+      ...item,
+      todo: item.id === todoItem.id ? newTodo : item.todo,
+    }));
+    setTodoList(newEditTodoList);
+
+    setEdit(false);
+  }
+  function editInput(e) {
+    setNewTodo(e.target.value);
+  }
+  useEffect(() => {
+    if (edit === true) {
+      editInputRef.current.focus();
+    }
+  }, [edit]);
+
+  // * checkbox
+  function checkboxHandle() {
+    if (checked === false) {
+      setChecked(true);
+    } else {
+      setChecked(false);
+    }
+  }
+  // useEffect(() => {
+  //   checkboxHandle();
+  // }, []);
 
   return (
     <>
       <li className={itemStyle.item}>
-        {/* // # checkbox */}
-        <input
-          type="checkbox"
-          className={itemStyle.checkbox}
-          onChange={changeCheckbox}
-          checked={todoItem.checked}
-        />
-        {/* // # todoitem 내용 */}
-        <span className={todoItem.checked === false ? itemStyle.span : itemStyle.spanChecked}>
-          {todoItem.todo}
-        </span>
-        {/* // # 삭제버튼 */}
-        <button type="button" className={itemStyle.deleteBtn}>
-          🗑
+        <input type="checkbox" className={itemStyle.checkbox} onClick={checkboxHandle} />
+        {edit === true ? (
+          <input
+            type="text"
+            value={newTodo}
+            onChange={editInput}
+            className={itemStyle.editInputbox}
+            ref={editInputRef}
+          />
+        ) : (
+          <span className={checked === false ? itemStyle.span : itemStyle.spanChecked}>
+            {todoItem.todo}
+          </span>
+        )}
+        {edit === false ? (
+          <button type="button" className={itemStyle.editButton} onClick={editItemState}>
+            🔺
+          </button>
+        ) : (
+          <button type="button" className={itemStyle.editButton} onClick={editCompleteItem}>
+            ✔️
+          </button>
+        )}
+
+        <button type="button" className={itemStyle.deleteButton} onClick={deleteItem}>
+          ❌
         </button>
       </li>
     </>
@@ -40,12 +89,12 @@ function TodoItem({ todoItem, todoList, setTodoList }) {
 TodoItem.propType = {
   todoItem: PropTypes.shape({
     id: PropTypes.number,
-    toDo: PropTypes.string.isRequired,
+    todo: PropTypes.string.isRequired,
   }),
   todoList: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
-      toDo: PropTypes.string.isRequired,
+      todo: PropTypes.string.isRequired,
     })
   ),
   setTodoList: PropTypes.func.isRequired,

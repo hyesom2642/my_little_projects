@@ -1,0 +1,43 @@
+.item {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.item:last-child {
+  margin-bottom: 0;
+}
+.checkbox {
+  margin-right: 10px;
+}
+.editButton {
+  margin-right: 10px;
+}
+.deleteButton,
+.editButton {
+  font-size: 20px;
+  background-color: inherit;
+  border: none;
+}
+
+.editButton:hover,
+.deleteButton:hover {
+  cursor: pointer;
+}
+
+.span,
+.editInputbox {
+  font-size: 16px;
+  flex-grow: 1;
+}
+.editInputbox:focus {
+  padding: 2px 0;
+  outline: none;
+}
+.spanChecked {
+  flex-grow: 1;
+  color: #cfd8dc;
+  font-style: italic;
+  text-decoration: line-through;
+}
