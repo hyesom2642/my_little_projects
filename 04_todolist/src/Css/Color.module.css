@@ -4,8 +4,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  bottom: 10vh;
 }
 
 .button {
@@ -19,7 +17,6 @@
 .button:hover {
   cursor: pointer;
 }
-
 .beigeBtn {
   background-color: #f2eee5;
 }

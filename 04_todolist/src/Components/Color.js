@@ -44,5 +44,4 @@ function Color({ setBgColor }) {
     </>
   );
 }
-
 export default Color;
